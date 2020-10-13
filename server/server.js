@@ -16,11 +16,19 @@ app.post('/usuario', (req, res) => {
 
     let persona = req.body
 
+    if( persona.nombre === undefined){
 
+        res.status(400).json({
+            ok: false,
+            mensaje: "Nombre es requerido"
+        })
+    } else {
 
-    res.json({
-        persona
-    })
+        res.json({
+            persona
+        })
+    }
+
 });
 
 
